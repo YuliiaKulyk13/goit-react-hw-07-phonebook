@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContacts } from 'redux/contactSlice';
+// import { deleteContacts } from 'redux/contactSlice';
 import {
   Contact,
   ContactItem,
@@ -8,6 +8,7 @@ import {
   List,
 } from './PhoneContacts.styled';
 import { getContacts, getFilters } from 'redux/selectors';
+import { deleteContact } from 'redux/operations';
 
 const PhoneContacts = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const PhoneContacts = () => {
           <ContactItem>
             {name}: {number}
           </ContactItem>
-          <DeleteButton onClick={() => dispatch(deleteContacts({ id }))}>
+          <DeleteButton onClick={() => dispatch(deleteContact({ id }))}>
             Delete
           </DeleteButton>
         </Contact>

@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 import { AddButton, Form, FormInput, Label } from './ContactsForm.styled';
 import { addContacts } from 'redux/contactSlice';
 import { getContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
 
 export function ContactsForm({ onSubmit }) {
   const [name, setName] = useState('');
@@ -44,7 +45,7 @@ export function ContactsForm({ onSubmit }) {
       contact => contact.name.toLowerCase() === addNewContact.name.toLowerCase()
     )
       ? alert(`${name}is already in contacts.`)
-      : dispatch(addContacts(addNewContact));
+      : dispatch(addContact(addNewContact));
   };
 
   return (
