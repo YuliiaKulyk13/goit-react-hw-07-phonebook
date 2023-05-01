@@ -5,12 +5,11 @@ import { AddButton, Form, FormInput, Label } from './ContactsForm.styled';
 import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 
-export function ContactsForm({ onSubmit }) {
+export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contactList = useSelector(selectContacts);
-  console.log(selectContacts);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -74,9 +73,7 @@ export function ContactsForm({ onSubmit }) {
           value={number}
         />
       </Label>
-      <AddButton type="submit" onSubmit={onSubmit}>
-        Add contact
-      </AddButton>
+      <AddButton type="submit">Add contact</AddButton>
     </Form>
   );
-}
+};

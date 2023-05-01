@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { deleteContacts } from 'redux/contactSlice';
 import {
   Contact,
   ContactItem,
@@ -13,7 +12,6 @@ import { deleteContact } from 'redux/operations';
 const PhoneContacts = () => {
   const dispatch = useDispatch();
   const NewFilteredContactsList = useSelector(selectVisibleContacts);
-  console.log(selectVisibleContacts);
 
   return (
     <List>
