@@ -7,18 +7,12 @@ import {
   DeleteButton,
   List,
 } from './PhoneContacts.styled';
-import { selectContacts, selectFilters } from 'redux/selectors';
+import { selectVisibleContacts } from 'redux/selectors';
 import { deleteContact } from 'redux/operations';
 
 const PhoneContacts = () => {
   const dispatch = useDispatch();
-
-  const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectFilters);
-
-  const NewFilteredContactsList = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  const NewFilteredContactsList = useSelector(selectVisibleContacts);
 
   return (
     <List>

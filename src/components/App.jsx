@@ -7,12 +7,12 @@ import Filter from './Filter/Filter';
 import { Title } from './Title/Title';
 import { ContactsForm } from './ContactsForm/ContactsForm';
 import { Layout } from './Layout/Layout.styled';
-import { getError, getIsLoading } from 'redux/selectors';
+import { selectError, selectIsLoading } from 'redux/selectors';
 
 export function App() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());
