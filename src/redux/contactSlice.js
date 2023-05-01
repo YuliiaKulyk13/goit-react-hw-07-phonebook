@@ -67,12 +67,12 @@ const persistConfig = {
   storage,
 };
 
-export const contactsReducers = persistReducer(
+export const contactsReducer = persistReducer(
   persistConfig,
   contactSlice.reducer
 );
 
 // export const { addContacts, deleteContacts, filterContacts } =
 //   contactSlice.actions;
-export const contactsReducer = contactSlice.reducer;
+export const contactsReducers = contactSlice.reducer;
 export const { filterContacts } = contactSlice.actions;

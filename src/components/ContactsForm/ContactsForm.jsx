@@ -10,6 +10,7 @@ export function ContactsForm({ onSubmit }) {
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contactList = useSelector(selectContacts);
+  console.log(selectContacts);
 
   const handleChange = e => {
     const { name, value } = e.target;

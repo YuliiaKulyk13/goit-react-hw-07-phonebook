@@ -8,6 +8,7 @@ import { Title } from './Title/Title';
 import { ContactsForm } from './ContactsForm/ContactsForm';
 import { Layout } from './Layout/Layout.styled';
 import { selectError, selectIsLoading } from 'redux/selectors';
+import { Notification } from './Notification/Notification';
 
 export function App() {
   const dispatch = useDispatch();
@@ -20,11 +21,12 @@ export function App() {
 
   return (
     <Layout>
+      <Title title={'Phonebook'} />
       <ContactsForm />
       <Title title={'Contacts'} />
-      {isLoading && !error && <b>Request in prigress...</b>}
-      <Title title={'Phonebook'} />
+      {isLoading && !error && <b>Request in progress...</b>}
       <Filter />
+      <Notification notification={'There are no contacts.'} />
       <PhoneContacts />
     </Layout>
   );

@@ -13,6 +13,7 @@ import { deleteContact } from 'redux/operations';
 const PhoneContacts = () => {
   const dispatch = useDispatch();
   const NewFilteredContactsList = useSelector(selectVisibleContacts);
+  console.log(selectVisibleContacts);
 
   return (
     <List>
