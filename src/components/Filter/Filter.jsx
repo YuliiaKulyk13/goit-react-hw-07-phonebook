@@ -9,7 +9,7 @@ export const Filter = () => {
   const filter = useSelector(selectFilters);
 
   const handleFilterChange = event =>
-    dispatch(filterContacts(event.target.value));
+    dispatch(filterContacts(event.currentTarget.value));
 
   return (
     <Label>

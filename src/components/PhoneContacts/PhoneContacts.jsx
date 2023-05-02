@@ -20,7 +20,7 @@ const PhoneContacts = () => {
           <ContactItem>
             {name}: {number}
           </ContactItem>
-          <DeleteButton onClick={() => dispatch(deleteContact({ id }))}>
+          <DeleteButton onClick={() => dispatch(deleteContact(id))}>
             Delete
           </DeleteButton>
         </Contact>

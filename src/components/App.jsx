@@ -32,7 +32,7 @@ export function App() {
       ) : (
         <PhoneContacts />
       )}
-      {isLoading && !error && <Loader />}
+      {isLoading && <Loader /> && !error}
     </Layout>
   );
 }
