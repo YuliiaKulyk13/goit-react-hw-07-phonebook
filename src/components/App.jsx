@@ -7,13 +7,15 @@ import Filter from './Filter/Filter';
 import { Title } from './Title/Title';
 import { ContactForm } from './ContactsForm/ContactsForm';
 import { Layout } from './Layout/Layout.styled';
-import { selectError, selectIsLoading } from 'redux/selectors';
+import { selectContacts, selectError, selectIsLoading } from 'redux/selectors';
 import { Notification } from './Notification/Notification';
+import { Loader } from './Loader/Loader';
 
 export function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  const contactList = useSelector(selectContacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -24,10 +26,13 @@ export function App() {
       <Title title={'Phonebook'} />
       <ContactForm />
       <Title title={'Contacts'} />
-      {isLoading && !error && <b>Request in progress...</b>}
-      <Filter />
-      <Notification notification={'There are no contacts.'} />
-      <PhoneContacts />
+      {contactList.length > 0 && <Filter />}
+      {contactList.length === 0 ? (
+        <Notification notification={'There are no contacts.'} />
+      ) : (
+        <PhoneContacts />
+      )}
+      {isLoading && !error && <Loader />}
     </Layout>
   );
 }
