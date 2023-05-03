@@ -26,13 +26,14 @@ export function App() {
       <Title title={'Phonebook'} />
       <ContactForm />
       <Title title={'Contacts'} />
+
       {contactList.length > 0 && <Filter />}
       {contactList.length === 0 ? (
         <Notification notification={'There are no contacts.'} />
       ) : (
         <PhoneContacts />
       )}
-      {isLoading && <Loader /> && !error}
+      {isLoading && !error && <Loader />}
     </Layout>
   );
 }
